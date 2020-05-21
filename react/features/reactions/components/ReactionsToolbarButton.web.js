@@ -2,11 +2,11 @@
 
 import React, { Component } from 'react';
 
-import { ToolbarButtonWithDialog } from '../../toolbox';
+import { AbstractButton, type AbstractButtonProps } from '../../base/toolbox';
 
 import ReactionsDialog from './ReactionsDialog';
 
-type Props = {
+type Props = AbstractButtonProps & {
     tooltipPosition: *
 };
 
@@ -28,19 +28,9 @@ const DEFAULT_BUTTON_CONFIGURATION = {
  * Implements the Web {@code ToolbarButton} which shows the dialog with the list
  * of supported reactions (i.e. reaction buttons).
  */
-export default class ReactionsToolbarButton extends Component<Props> {
-    /**
-     * Implements React's {@link Component#render()}.
-     *
-     * @inheritdoc
-     * @returns {ReactElement}
-     */
-    render() {
-        return (
-            <ToolbarButtonWithDialog
-                button = { DEFAULT_BUTTON_CONFIGURATION }
-                content = { ReactionsDialog }
-                tooltipPosition = { this.props.tooltipPosition } />
-        );
-    }
+export default class ReactionsToolbarButton extends AbstractButton<Props, *> {
+    accessibilityLabel = 'toolbar.accessibilityLabel.reactions';
+    icon = IconModerator;
+    label = 'toolbar.raiseYourHand';
+    toggledLabel = 'toolbar.lowerYourHand';
 }
