@@ -304,6 +304,7 @@
         "Yes": "Yes",
         "yourEntireScreen": "Your entire screen"
     },
+    "reactionsButtonTip": "Send a reaction",
     "dialOut": {
         "statusMessage": "is now {{status}}"
     },

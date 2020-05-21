@@ -128,6 +128,8 @@ class SpeakerStats extends Component<Props, State> {
 
         const isDominantSpeaker = statsModel.isDominantSpeaker();
         const dominantSpeakerTime = statsModel.getTotalDominantSpeakerTime();
+        const poopCount = statsModel.getPoopCount();
+        const heartCount = statsModel.getHeartCount();
         const hasLeft = statsModel.hasLeft();
 
         let displayName;
@@ -150,8 +152,10 @@ class SpeakerStats extends Component<Props, State> {
                 displayName = { displayName }
                 dominantSpeakerTime = { dominantSpeakerTime }
                 hasLeft = { hasLeft }
+                heartCount = { heartCount }
                 isDominantSpeaker = { isDominantSpeaker }
-                key = { userId } />
+                key = { userId } 
+                poopCount = { poopCount } />
         );
     }
 

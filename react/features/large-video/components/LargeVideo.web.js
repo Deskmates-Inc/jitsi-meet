@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import { Watermarks } from '../../base/react';
 import { connect } from '../../base/redux';
 import { Captions } from '../../subtitles/';
+import { ReactionsCanvas } from '../../reactions';
 
 declare var interfaceConfig: Object;
 
@@ -69,6 +70,7 @@ class LargeVideo extends Component<Props> {
                 </div>
                 { interfaceConfig.DISABLE_TRANSCRIPTION_SUBTITLES
                     || <Captions /> }
+<ReactionsCanvas />
             </div>
         );
     }

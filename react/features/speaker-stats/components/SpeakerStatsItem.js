@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 
 import TimeElapsed from './TimeElapsed';
+import Count from './Count';
 
 /**
  * The type of the React {@code Component} props of {@link SpeakerStatsItem}.
@@ -23,11 +24,13 @@ type Props = {
      * True if the participant is no longer in the meeting.
      */
     hasLeft: boolean,
+    heartCount: number,
 
     /**
      * True if the participant is currently the dominant speaker.
      */
-    isDominantSpeaker: boolean
+    isDominantSpeaker: boolean,
+        poopCount: number
 };
 
 /**
@@ -61,6 +64,14 @@ class SpeakerStatsItem extends Component<Props> {
                 <div className = 'speaker-stats-item__time'>
                     <TimeElapsed
                         time = { this.props.dominantSpeakerTime } />
+                </div>
+                <div className = 'speaker-stats-item__poop'>
+                    <Count
+                        count = { this.props.poopCount } />
+                </div>
+                <div className = 'speaker-stats-item__heart'>
+                    <Count
+                        count = { this.props.heartCount } />
                 </div>
             </div>
         );

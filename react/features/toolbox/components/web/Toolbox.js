@@ -42,6 +42,7 @@ import {
     LocalRecordingButton,
     LocalRecordingInfoDialog
 } from '../../../local-recording';
+import { ReactionsToolbarButton } from '../reactions';
 import {
     LiveStreamButton,
     RecordButton
@@ -990,6 +991,10 @@ class Toolbox extends Component<Props, State> {
                 && <SharedDocumentButton
                     key = 'etherpad'
                     showLabel = { true } />,
+        <ReactionsToolbarButton
+key = 'reactions'
+showLabel = { true } 
+visible = { this._shouldShowButton('reactions') }/>,
             <VideoBlurButton
                 key = 'videobackgroundblur'
                 showLabel = { true }

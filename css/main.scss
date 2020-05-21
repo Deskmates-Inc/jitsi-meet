@@ -23,6 +23,9 @@ $flagsImagePath: "../images/";
 @import "../node_modules/bc-css-flags/dist/css/bc-css-flags.scss";
 /* Flags END */
 
+@import 'emoji-icons';
+@import 'emoji-animations';
+
 /* Modules BEGIN */
 
 @import 'aui_reset';
@@ -75,6 +78,7 @@ $flagsImagePath: "../images/";
 @import 'filmstrip/tile_view_overrides';
 @import 'filmstrip/vertical_filmstrip';
 @import 'filmstrip/vertical_filmstrip_overrides';
+@import 'reactions';
 @import 'labels';
 @import 'unsupported-browser/main';
 @import 'modals/invite/add-people';
