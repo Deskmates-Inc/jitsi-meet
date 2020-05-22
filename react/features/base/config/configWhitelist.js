@@ -92,6 +92,7 @@ export default [
     'disableNS',
     'disableRemoteControl',
     'disableRemoteMute',
+    'deploymentInfo',
     'disableRtx',
     'disableSimulcast',
     'disableSuspendVideo',
