@@ -4,6 +4,7 @@ var interfaceConfig = {
     // TO FIX: this needs to be handled from SASS variables. There are some
     // methods allowing to use variables both in css and js.
     DEFAULT_BACKGROUND: '#FF1A9C',
+    DEFAULT_LOGO_URL: '../images/watermark.png',
 
     /**
      * Whether or not the blurred video background for large video should be
@@ -32,12 +33,11 @@ var interfaceConfig = {
     NATIVE_APP_NAME: 'Vidi Meet',
     PROVIDER_NAME: 'Vidi',
     LANG_DETECTION: true, // Allow i18n to detect the system language
-    INVITATION_POWERED_BY: true,
 
     /**
-     * If we should show authentication block in profile
+     * Hide the invite prompt in the header when alone in the meeting.
      */
-    AUTHENTICATION_ENABLE: true,
+    HIDE_INVITE_MORE_HEADER: false,
 
     /**
      * The name of the toolbar buttons to display in the toolbar. If present,
@@ -51,8 +51,7 @@ var interfaceConfig = {
         'fodeviceselection', 'hangup', 'profile', 'chat', 'recording',
         'livestreaming', 'etherpad', 'sharedvideo', 'settings', 'raisehand',
         'videoquality', 'filmstrip', 'invite', 'feedback', 'stats', 'shortcuts',
-        'tileview', 'videobackgroundblur', 'download', 'help', 'mute-everyone',
-        'e2ee', 'security'
+        'tileview', 'videobackgroundblur', 'download', 'help', 'mute-everyone', 'security'
     ],
 
     SETTINGS_SECTIONS: [ 'devices', 'language', 'moderator', 'profile', 'calendar' ],
@@ -76,8 +75,6 @@ var interfaceConfig = {
     // A html text to be shown to guests on the close page, false disables it
     CLOSE_PAGE_GUEST_HINT: false,
     SHOW_PROMOTIONAL_CLOSE_PAGE: false,
-    RANDOM_AVATAR_URL_PREFIX: false,
-    RANDOM_AVATAR_URL_SUFFIX: false,
     FILM_STRIP_MAX_HEIGHT: 120,
 
     // Enables feedback star animation.
@@ -250,7 +247,6 @@ var interfaceConfig = {
     // List of undocumented settings
     /**
      INDICATOR_FONT_SIZES
-     MOBILE_DYNAMIC_LINK
      PHONE_NUMBER_REGEX
     */
 
