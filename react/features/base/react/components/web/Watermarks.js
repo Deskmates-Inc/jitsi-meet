@@ -43,6 +43,16 @@ type Props = {
     _readyToDisplayJitsiWatermark: boolean,
 
     /**
+     * Returns true if welcome page is visible at the moment.
+     */
+    _welcomePageIsVisible: boolean,
+
+    /**
+     * The default value for the Jitsi logo URL.
+     */
+    defaultJitsiLogoURL: ?string,
+
+    /**
      * Invoked to obtain translated strings.
      */
     t: Function
@@ -162,11 +172,13 @@ class Watermarks extends Component<Props, State> {
         } = this.state;
         const {
             _isGuest,
-            _readyToDisplayJitsiWatermark
+            _readyToDisplayJitsiWatermark,
+            _welcomePageIsVisible
         } = this.props;
 
-        return _readyToDisplayJitsiWatermark
-            && (showJitsiWatermark || (_isGuest && showJitsiWatermarkForGuests));
+        return (_readyToDisplayJitsiWatermark
+            && (showJitsiWatermark || (_isGuest && showJitsiWatermarkForGuests)))
+            || _welcomePageIsVisible;
     }
 
     /**
@@ -211,13 +223,14 @@ class Watermarks extends Component<Props, State> {
         let reactElement = null;
         const {
             _customLogoUrl,
-            _customLogoLink
+            _customLogoLink,
+            defaultJitsiLogoURL
         } = this.props;
 
         if (this._canDisplayJitsiWatermark()) {
             const link = _customLogoLink || this.state.jitsiWatermarkLink;
             const style = {
-                backgroundImage: `url(${_customLogoUrl || interfaceConfig.DEFAULT_LOGO_URL})`,
+                backgroundImage: `url(${_customLogoUrl || defaultJitsiLogoURL || interfaceConfig.DEFAULT_LOGO_URL})`,
                 maxWidth: 140,
                 maxHeight: 70
             };
@@ -273,6 +286,7 @@ class Watermarks extends Component<Props, State> {
 function _mapStateToProps(state) {
     const { isGuest } = state['features/base/jwt'];
     const { customizationReady, logoClickUrl, logoImageUrl } = state['features/dynamic-branding'];
+    const { room } = state['features/base/conference'];
 
     return {
         /**
@@ -285,7 +299,8 @@ function _mapStateToProps(state) {
         _customLogoLink: logoClickUrl,
         _customLogoUrl: logoImageUrl,
         _isGuest: isGuest,
-        _readyToDisplayJitsiWatermark: customizationReady
+        _readyToDisplayJitsiWatermark: customizationReady,
+        _welcomePageIsVisible: !room
     };
 }
 
